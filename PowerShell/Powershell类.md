@@ -1,0 +1,1 @@
+https://www.sapien.com/blog/2016/03/16/inheritance-in-powershell-classes/

@@ -1,0 +1,166 @@
+{
+  "main": {
+    "id": "a39e7e10f5bf033f",
+    "type": "split",
+    "children": [
+      {
+        "id": "eeb23281bb2ac6a8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a0466e056a5c26f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "嵌入式逆向/ARM汇编助记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b01a40b67eb15670",
+    "type": "split",
+    "children": [
+      {
+        "id": "55beb4fa1eb7bcf1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "85a7877e5e570eba",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "67a7bc4eefde3710",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ee49d030b2187cb7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 409.5
+  },
+  "right": {
+    "id": "201c697ed61633db",
+    "type": "split",
+    "children": [
+      {
+        "id": "6ac4663c493a0c85",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "616331775f32aca1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "嵌入式逆向/ARM汇编助记.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "86188e7e1ac7c261",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "嵌入式逆向/ARM汇编助记.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 304.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "85a7877e5e570eba",
+  "lastOpenFiles": [
+    "嵌入式逆向/android逆向",
+    "嵌入式逆向/新建文件夹",
+    "PowerShell/Powershell脚本编写指南.md",
+    "嵌入式逆向/ARM汇编助记.md",
+    "PowerShell/Powershell文件操作.md",
+    "网页剪藏/以 Bypass 为中心谭谈 Flask-jinja2 SSTI 的利用.md",
+    "SSTI/Flask/绕过(持续更新).md",
+    "SSTI/Flask/主要思路.md",
+    "PowerShell/Powershell二进制.md",
+    "PowerShell/Powershell网络操作.md",
+    "PowerShell/Powershell特殊变量.md",
+    "网页剪藏/SQLMap Tamper Scripts (SQL Injection and WAF bypass) Tips by Red C0de Medium.md",
+    "网页剪藏/网络安全管理职业技能竞赛Web writeup_合天网安学院-程序员宝宝 - 程序员宝宝.assets/format,png.png",
+    "网页剪藏/0368-PHP文件包含漏洞总结.md",
+    "网页剪藏/001-上传绕过总结.md",
+    "网页剪藏/《网络安全法》相关法规及标准总结（2020年—2021年2月）-中伦律师事务所.md",
+    "PowerShell/Powershell常见编码或加密.md",
+    "Web/CVE/Alibaba Nacos权限认证绕过漏洞复现.md",
+    "网页剪藏/【原创】python exe文件解包方法总结.md",
+    "逆向/Python/PyInstaller逆向.md",
+    "逆向/Python/PYC文件.md",
+    "windows注册表.md",
+    "Web/JWT伪造.md",
+    "Web/CVE/Nacos身份绕过漏洞（QVD-2023-6271）.md",
+    "Web/Untitled.md",
+    "Web/CVE",
+    "Misc/ZIP/RAR压缩文件爆破.md",
+    "Web",
+    "Misc/ZIP/使用HashCat爆破压缩文件.md",
+    "网页剪藏/How to Work With Multipart Zip Archives and Split Files.md",
+    "网页剪藏/网络安全管理职业技能竞赛Web writeup_合天网安学院-程序员宝宝 - 程序员宝宝.pdf",
+    "Misc/ZIP/Untitled",
+    "Misc/ZIP",
+    "Misc",
+    "SSTI/Flask",
+    "SSTI",
+    "逆向/Python"
+  ]
+}

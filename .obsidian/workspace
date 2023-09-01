@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "7b189bc317b0124d",
+        "id": "d5f8420805436393",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "SQLMap Tamper Scripts (SQL Injection and WAF bypass) Tips by Red C0de Medium.md",
-            "mode": "preview"
+            "file": "PowerShell/Powershell脚本编写指南.md",
+            "mode": "source"
           }
         }
       }
@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 273
   },
   "right": {
     "id": "201c697ed61633db",
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SQLMap Tamper Scripts (SQL Injection and WAF bypass) Tips by Red C0de Medium.md",
+                "file": "PowerShell/Powershell脚本编写指南.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -78,16 +78,34 @@
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "86188e7e1ac7c261",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "PowerShell/Powershell脚本编写指南.md"
+              }
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "7b189bc317b0124d",
+  "active": "d5f8420805436393",
   "lastOpenFiles": [
-    "SQLMap Tamper Scripts (SQL Injection and WAF bypass) Tips by Red C0de Medium.md"
+    "PowerShell/Powershell脚本编写指南.md",
+    "PowerShell/Powershell函数.md",
+    "PowerShell/Powershell二进制.md",
+    "PowerShell/Powershell常见编码或加密.md",
+    "PHP漏洞/XXE.md",
+    "协议分析/s7协议.md",
+    "PowerShell/Powershell数组.md",
+    "PowerShell/Powershell特殊变量.md",
+    "PowerShell/Powershell网络操作.md",
+    "PowerShell/Powershell字符串.md"
   ]
 }
